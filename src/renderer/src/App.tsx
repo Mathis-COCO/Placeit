@@ -1,11 +1,9 @@
 import LeftBar from './components/LeftBar'
 
-function App(): JSX.Element {
+export default function App(): JSX.Element {
   return (
-    <div className="container">
+    <div className="app">
       <LeftBar />
     </div>
   )
 }
-
-export default App
