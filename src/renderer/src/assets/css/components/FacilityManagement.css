@@ -1,0 +1,81 @@
+.facility-main {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.facility-container {
+    box-shadow: 0px 0px 22px 10px #9E9E9E;
+    border-radius: 25px;
+    height: 55vh;
+    width: 45vw;
+    padding: 2vw 5vw 0 5vw;
+}
+
+.facility-div-title {
+    color: rgb(127, 202, 255);
+    font-size: 55px;
+    text-transform: capitalize;
+    margin-bottom: 0;
+}
+
+.facility-div-desc {
+    margin-top: 0;
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 8vh;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-between;
+}
+
+.facility-card-img {
+    width: 100%;
+    height: 84%;
+}
+
+.facility-card {
+    box-shadow: 0px 0px 22px 5px #9e9e9ec5;
+    height: 14vw;
+    width: 25%;
+    border-radius: 25px;
+    overflow: hidden;
+    transition: all .2s ease-in-out;
+}
+
+.facility-card:hover {
+    transform: scale(1.05);
+}
+
+.facility-card-txt {
+    font-size: 1em;
+    letter-spacing: 2px;
+    display: flex;
+    justify-content: center;
+    margin-top: 0.5vh;
+}
+
+.add-facility {
+    width: 25%;
+    font-size: 75px;
+    border-radius: 25px;
+    background-color: #eaeaea;
+    border: dashed;
+    transition: all .2s ease-in-out;
+}
+
+.add-facility:hover {
+    transform: scale(1.05);
+    background-color: #dadada;
+}
+
+.person-sitting {
+    position: absolute;
+    margin: -70vh 0 0 -48vw;
+    z-index: 1;
+}
