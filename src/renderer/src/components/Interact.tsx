@@ -1,5 +1,5 @@
 import interact from 'interactjs'
-import '../assets/css/InteractElement.css'
+import '../assets/css/components/InteractElement.css'
 
 function InteractZones(): JSX.Element {
     const position = { x: 0, y: 0 }

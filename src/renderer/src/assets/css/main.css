@@ -5,3 +5,19 @@ body {
     color: var(--black);
     background-color: var(--white);
 }
+
+.app {
+    display: flex;
+}
+
+.right-part {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+p, span {
+    margin: 0;
+}
