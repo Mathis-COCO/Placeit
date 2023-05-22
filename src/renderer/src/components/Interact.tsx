@@ -29,8 +29,8 @@ function InteractZones(): JSX.Element {
         <div className="interact-container">
             {zoneList.map((name, index) => (
                 <div className="draggable" key={index}>
-                    <p>{index}</p>
-                    <p>{name}</p>
+                    <p className='zone-places'>{name}</p>
+                    <p className='zone-index'>{index}</p>
                 </div>
             ))}
         </div>

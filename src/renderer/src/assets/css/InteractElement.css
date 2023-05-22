@@ -4,13 +4,20 @@
     border: solid pink 0.5vh;
     height: 20vh;
     width: 20vh;
-    border-radius: 15%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    border-radius: 7.5%;
 }
 
 .interact-container {
     height: 100%;
     width: 100%;
+}
+
+.zone-places {
+    padding: 2vh;
+    font-size: 3vh;
+}
+
+.zone-index {
+    font-size: 10vh;
+    margin-left: 0.5vw;
 }
