@@ -1,11 +1,11 @@
-import LeftBar from './components/LeftBar'
+import Panel from './components/Panel'
 import {GroupProvider} from "./context/groups/GroupProvider";
 
 export default function App(): JSX.Element {
     return (
         <div className="app">
             <GroupProvider>
-                <LeftBar/>
+                <Panel/>
             </GroupProvider>
         </div>
     )

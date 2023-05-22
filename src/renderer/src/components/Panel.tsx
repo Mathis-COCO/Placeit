@@ -2,7 +2,7 @@ import logo from '../assets/img/logo.png'
 import {useState} from "react";
 import {Button} from "./common/Button";
 
-export default function LeftBar(): JSX.Element {
+export default function Panel(): JSX.Element {
     const [groups, setGroups] = useState<Array<string>>(["Group 1", "Group 2", "Group 3"]);
 
     const addGroup = () => {
