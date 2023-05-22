@@ -9,9 +9,7 @@ function InteractZones(): JSX.Element {
 
     interact('.draggable').draggable({
     listeners: {
-        start (event) {
-        console.log(event.type, event.target)
-        },
+        start () {},
         move (event) {
         position.x += event.dx
         position.y += event.dy
