@@ -1,36 +1,50 @@
 import logo from '../assets/img/logo.png'
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {Button} from "./common/Button";
 import {GroupContext} from "../context/groups/GroupProvider";
 import {GroupActionType} from "../context/groups/GroupReducer";
 
 export default function Panel(): JSX.Element {
     const [state, dispatch] = useContext(GroupContext)
+    const [groupCount, setGroupCount] = useState(0)
+    const [zoneCount, setZoneCount] = useState(0)
 
     const addGroup = () => {
+        setGroupCount(groupCount + 1)
         dispatch({
             type: GroupActionType.ADD_GROUP,
             payload: {
+                id: groupCount,
                 label: "Nouveau groupe",
                 zones: []
             },
         });
     }
 
-    const openGroup = () => {
+    const addZone = () => {
+        setZoneCount(zoneCount + 1)
+        if (state.currentGroup) {
             dispatch({
-            type: GroupActionType.SET_CURRENT_GROUP,
-            payload: {
-                label: "Nouveau groupe",
-                zones: [
+                type: GroupActionType.SET_ZONES,
+                payload: [
+                    ...state.currentGroup.zones,
                     {
-                        id: 1,
-                        totalPlaces: 10,
-                        reservedPlaces: 2,
-                        occupiedPlaces: 3,
+                        id: zoneCount,
+                        totalPlaces: 20,
+                        reservedPlaces: 10,
+                        occupiedPlaces: 8,
                     }
                 ]
-            },
+            })
+        }
+    }
+
+    const openGroup = (id: number) => {
+        const group = state.groups.filter(group => group.id === id)[0];
+
+        dispatch({
+            type: GroupActionType.SET_CURRENT_GROUP,
+            payload: group,
         });
     }
 
@@ -43,10 +57,11 @@ export default function Panel(): JSX.Element {
             <div className="groups-container">
                 {
                     state.groups.map((group, index) => (
-                        <p key={index} className='group-name' onClick={openGroup}>{group.label}</p>
+                        <p key={index} className='group-name' onClick={() => openGroup(group.id)}>{group.label}</p>
                     ))
                 }
             </div>
+            <Button text={"Ajouter une zone"} onClick={addZone}/>
         </div>
     )
 }

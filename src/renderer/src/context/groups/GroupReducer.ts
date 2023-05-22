@@ -18,6 +18,7 @@ export enum GroupActionType {
     SET_CURRENT_GROUP = 'SET_CURRENT_GROUP',
     SET_GROUPS = 'SET_GROUPS',
     ADD_GROUP = 'ADD_GROUP',
+    SET_ZONES = 'SET_ZONES',
 }
 
 export const GroupReducer = (state: GroupState, action: Action<GroupActionType>) => {
@@ -36,7 +37,6 @@ export const GroupReducer = (state: GroupState, action: Action<GroupActionType>)
             return {
                 ...state,
                 groups: action.payload,
-                loading: false,
             };
         case GroupActionType.ADD_GROUP:
             return {
@@ -45,6 +45,15 @@ export const GroupReducer = (state: GroupState, action: Action<GroupActionType>)
                     ...state.groups,
                     action.payload,
                 ],
+            };
+        case GroupActionType.SET_ZONES:
+            return {
+                ...state,
+                currentGroup: {
+                    ...state.currentGroup,
+                    zones: action.payload
+                },
+                loading: false,
             };
         default:
             return state;
