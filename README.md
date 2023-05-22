@@ -21,7 +21,31 @@ Vous pouvez également annuler ou modifier votre réservation à tout moment ava
 
 ## Installation
 
-AJOUTER LA PARTIE INSTALLATION UNE FOIS LE PROJET INITIALISÉ
+### Install node dependencies
+
+```bash
+$ npm install
+```
+
+### Development
+
+```bash
+$ npm run dev
+```
+
+### Build
+
+```bash
+# For windows
+$ npm run build:win
+
+# For macOS
+$ npm run build:mac
+
+# For Linux
+$ npm run build:linux
+```
+
 
 ## Contribution
 
