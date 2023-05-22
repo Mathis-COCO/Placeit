@@ -1,6 +1,7 @@
 :root {
-    --blue: #98D6F0;
+    --light-blue: #98D6F0;
     --black: rgb(0, 0, 0);
     --grey: rgba(0, 0, 0, 0.2);
+    --white: rgb(255, 255, 255);
 }
 

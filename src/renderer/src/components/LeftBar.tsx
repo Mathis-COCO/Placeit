@@ -1,21 +1,26 @@
 import logo from '../assets/img/logo.png'
+import {useState} from "react";
+import {Button} from "./common/Button";
 
 export default function LeftBar(): JSX.Element {
-    const zoneNames = ['zone1', 'zone2', 'zone3', 'zone4', 'zone5'];
+    const [zones, setZones] = useState<Array<string>>(["Zone 1", "Zone 2", "Zone 3"]);
+
+    const addZone = () => {
+        setZones([...zones, "Nouvelle Zone"])
+    }
 
     return (
         <div className="left-bar">
-            <img className='logo' src={logo} alt="PlaceIt Logo" />
-            <div>
-                <button className='add-zone'>ajouter une zone principale</button>
+            <div className="logo-content">
+                <img className="logo" src={logo} alt="PlaceIt Logo"/>
             </div>
+            <Button text={"Ajouter une zone"} onClick={addZone}/>
             <div className="zones-container">
-                {zoneNames.map((name, index) => (
-                    <p className='zone-name' key={index}>{name}</p>
-                ))}
-            </div>
-            <div>
-                <button className='add-zone add-zone-2'>ajouter la zone</button>
+                {
+                    zones.map((zone, index) => (
+                        <p key={index} className='zone-name'>{zone}</p>
+                    ))
+                }
             </div>
         </div>
     )
