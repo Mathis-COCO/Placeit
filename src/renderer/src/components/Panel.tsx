@@ -7,7 +7,7 @@ import {GroupActionType} from "../context/groups/GroupReducer";
 export default function Panel(): JSX.Element {
     const [state, dispatch] = useContext(GroupContext)
     const [groupCount, setGroupCount] = useState(0)
-    const [zoneCount, setZoneCount] = useState(0)
+    const [zoneCount, setZoneCount] = useState(1)
 
     const addGroup = () => {
         setGroupCount(groupCount + 1)
@@ -22,20 +22,22 @@ export default function Panel(): JSX.Element {
     }
 
     const addZone = () => {
-        setZoneCount(zoneCount + 1)
         if (state.currentGroup) {
-            dispatch({
-                type: GroupActionType.SET_ZONES,
-                payload: [
-                    ...state.currentGroup.zones,
-                    {
-                        id: zoneCount,
-                        totalPlaces: 20,
-                        reservedPlaces: 10,
-                        occupiedPlaces: 8,
-                    }
-                ]
-            })
+            setZoneCount(zoneCount + 1)
+            if (state.currentGroup) {
+                dispatch({
+                    type: GroupActionType.SET_ZONES,
+                    payload: [
+                        ...state.currentGroup.zones,
+                        {
+                            id: zoneCount,
+                            totalPlaces: 20,
+                            reservedPlaces: 10,
+                            occupiedPlaces: 8,
+                        }
+                    ]
+                })
+            }
         }
     }
 
