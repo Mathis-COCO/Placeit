@@ -1,35 +1,35 @@
 import {Action} from "../../types/ActionType";
 
-export interface ZoneState {
+export interface GroupState {
     loading: boolean
     zones: Array<string>
 }
 
-export const initialZoneState: ZoneState = {
+export const initialGroupState: GroupState = {
     loading: false,
     zones: []
 }
 
-export enum ZoneActionType {
+export enum GroupActionType {
     SET_LOADING = 'SET_LOADING',
     SET_ZONES = 'SET_ZONE',
     ADD_ZONE = 'ADD_ZONE'
 }
 
-export const ZoneReducer = (state: ZoneState, action: Action<ZoneActionType>) => {
+export const GroupReducer = (state: GroupState, action: Action<GroupActionType>) => {
     switch (action.type) {
-        case ZoneActionType.SET_LOADING:
+        case GroupActionType.SET_LOADING:
             return {
                 ...state,
                 loading: action.payload,
             };
-        case ZoneActionType.SET_ZONES:
+        case GroupActionType.SET_ZONES:
             return {
                 ...state,
                 zones: action.payload,
                 loading: false,
             };
-        case ZoneActionType.ADD_ZONE:
+        case GroupActionType.ADD_ZONE:
             return {
                 ...state,
                 zones: [
