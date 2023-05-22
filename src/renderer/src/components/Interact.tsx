@@ -3,6 +3,7 @@ import '../assets/css/InteractElement.css'
 
 function InteractZones(): JSX.Element {
     const position = { x: 0, y: 0 }
+    const zoneList = ['Zone 1', 'Zone 2'];
 
     interact('.draggable').draggable({
     listeners: {
@@ -16,12 +17,22 @@ function InteractZones(): JSX.Element {
         event.target.style.transform =
             `translate(${position.x}px, ${position.y}px)`
         },
-    }
+    },
+    modifiers: [
+        interact.modifiers.restrictRect({
+          restriction: 'parent'
+        })
+    ]
     })
 
     return (
-        <div className="options-container">
-            <div className="draggable">Zone X</div>
+        <div className="interact-container">
+            {zoneList.map((name, index) => (
+                <div className="draggable" key={index}>
+                    <p>{index}</p>
+                    <p>{name}</p>
+                </div>
+            ))}
         </div>
     )
 }
