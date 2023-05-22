@@ -1,4 +1,5 @@
 import interact from 'interactjs'
+import '../assets/css/InteractElement.css'
 
 function InteractZones(): JSX.Element {
     const position = { x: 0, y: 0 }
@@ -20,7 +21,7 @@ function InteractZones(): JSX.Element {
 
     return (
         <div className="options-container">
-            <div className="draggable"> Draggable Element </div>
+            <div className="draggable">Zone X</div>
         </div>
     )
 }
