@@ -1,12 +1,37 @@
 import logo from '../assets/img/logo.png'
-import {useState} from "react";
+import {useContext} from "react";
 import {Button} from "./common/Button";
+import {GroupContext} from "../context/groups/GroupProvider";
+import {GroupActionType} from "../context/groups/GroupReducer";
 
 export default function Panel(): JSX.Element {
-    const [groups, setGroups] = useState<Array<string>>(["Group 1", "Group 2", "Group 3"]);
+    const [state, dispatch] = useContext(GroupContext)
 
     const addGroup = () => {
-        setGroups([...groups, "Nouveau groupe"])
+        dispatch({
+            type: GroupActionType.ADD_GROUP,
+            payload: {
+                label: "Nouveau groupe",
+                zones: []
+            },
+        });
+    }
+
+    const openGroup = () => {
+            dispatch({
+            type: GroupActionType.SET_CURRENT_GROUP,
+            payload: {
+                label: "Nouveau groupe",
+                zones: [
+                    {
+                        id: 1,
+                        totalPlaces: 10,
+                        reservedPlaces: 2,
+                        occupiedPlaces: 3,
+                    }
+                ]
+            },
+        });
     }
 
     return (
@@ -17,8 +42,8 @@ export default function Panel(): JSX.Element {
             <Button text={"Ajouter un groupe"} onClick={addGroup}/>
             <div className="groups-container">
                 {
-                    groups.map((group, index) => (
-                        <p key={index} className='group-name'>{group}</p>
+                    state.groups.map((group, index) => (
+                        <p key={index} className='group-name' onClick={openGroup}>{group.label}</p>
                     ))
                 }
             </div>

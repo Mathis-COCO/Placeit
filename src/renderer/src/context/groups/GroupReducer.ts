@@ -1,19 +1,23 @@
 import {Action} from "../../types/ActionType";
+import {GroupType} from "../../types/GroupType";
 
 export interface GroupState {
     loading: boolean
-    zones: Array<string>
+    currentGroup: GroupType | undefined
+    groups: Array<GroupType>
 }
 
 export const initialGroupState: GroupState = {
     loading: false,
-    zones: []
+    currentGroup: undefined,
+    groups: [],
 }
 
 export enum GroupActionType {
     SET_LOADING = 'SET_LOADING',
-    SET_ZONES = 'SET_ZONE',
-    ADD_ZONE = 'ADD_ZONE'
+    SET_CURRENT_GROUP = 'SET_CURRENT_GROUP',
+    SET_GROUPS = 'SET_GROUPS',
+    ADD_GROUP = 'ADD_GROUP',
 }
 
 export const GroupReducer = (state: GroupState, action: Action<GroupActionType>) => {
@@ -23,18 +27,23 @@ export const GroupReducer = (state: GroupState, action: Action<GroupActionType>)
                 ...state,
                 loading: action.payload,
             };
-        case GroupActionType.SET_ZONES:
+        case GroupActionType.SET_CURRENT_GROUP:
             return {
                 ...state,
-                zones: action.payload,
+                currentGroup: action.payload,
+            };
+        case GroupActionType.SET_GROUPS:
+            return {
+                ...state,
+                groups: action.payload,
                 loading: false,
             };
-        case GroupActionType.ADD_ZONE:
+        case GroupActionType.ADD_GROUP:
             return {
                 ...state,
-                zones: [
+                groups: [
+                    ...state.groups,
                     action.payload,
-                    ...state.zones,
                 ],
             };
         default:

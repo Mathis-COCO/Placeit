@@ -1,9 +1,11 @@
 import interact from 'interactjs'
 import '../assets/css/components/InteractElement.css'
+import {useContext} from "react";
+import {GroupContext} from "../context/groups/GroupProvider";
 
 function InteractZones(): JSX.Element {
     const position = { x: 0, y: 0 }
-    const zoneList = ['Zone 1', 'Zone 2'];
+    const [state,] = useContext(GroupContext);
 
     interact('.draggable').draggable({
     listeners: {
@@ -27,10 +29,10 @@ function InteractZones(): JSX.Element {
 
     return (
         <div className="interact-container">
-            {zoneList.map((name, index) => (
+            {state.currentGroup && state.currentGroup.zones.map((zone, index) => (
                 <div className="draggable" key={index}>
-                    <p className='zone-places'>{name}</p>
-                    <p className='zone-index'>{index}</p>
+                    <p className='zone-places'>{zone.totalPlaces - zone.occupiedPlaces} places</p>
+                    <p className='zone-index'>{zone.id}</p>
                 </div>
             ))}
         </div>
