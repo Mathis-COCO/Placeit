@@ -1,0 +1,21 @@
+.options-container {
+    width: 50%;
+    background-color: white;
+    border: solid rgb(0, 170, 255) 2.5px;
+    border-radius: 25px;
+    height: 80%;
+    padding: 25px;
+}
+
+.options {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.option-txt {
+    color: black;
+    font-weight: 600;
+    letter-spacing: 1.1px;
+    text-transform: lowercase;
+}
