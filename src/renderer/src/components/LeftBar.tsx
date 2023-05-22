@@ -1,7 +1,6 @@
-import logo from '../../../img/logo.png';
-import '../assets/css/LeftBar.css'
+import logo from '../assets/img/logo.png'
 
-function LeftBar(): JSX.Element {
+export default function LeftBar(): JSX.Element {
     const zoneNames = ['zone1', 'zone2', 'zone3', 'zone4', 'zone5'];
 
     return (
@@ -21,5 +20,3 @@ function LeftBar(): JSX.Element {
         </div>
     )
 }
-
-export default LeftBar
