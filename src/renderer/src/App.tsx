@@ -1,18 +1,14 @@
-import LeftBar from './components/LeftBar'
-import Options from './components/Options'
-import '../src/assets/css/index.css'
-import InteractZones from './components/Interact'
+import Panel from './components/Panel'
+import {GroupProvider} from "./context/groups/GroupProvider";
 
-function App(): JSX.Element {
-  return (
-    <div className="container">
-      <LeftBar />
-      <div className='right-part'>
-        {/* <Options /> */}
-        <InteractZones />
-      </div>
-    </div>
-  )
+export default function App(): JSX.Element {
+    return (
+        <div className="app">
+            <GroupProvider>
+                <Panel/>
+            </GroupProvider>
+        </div>
+    )
 }
 
 export default App

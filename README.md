@@ -21,31 +21,51 @@ Vous pouvez également annuler ou modifier votre réservation à tout moment ava
 
 ## Installation
 
-### Install node dependencies
+### Linux
 
-```bash
-$ npm install
-```
+1. Lancer le projet
 
-### Development
+    ```bash
+    $ make run
+    ```
+   
+2. Build le projet
+    ```bash
+    $ make build-linux
+    ```
 
-```bash
-$ npm run dev
-```
+### MacOS
 
-### Build
+1. Lancer le projet
 
-```bash
-# For windows
-$ npm run build:win
+    ```bash
+    $ make run
+    ```
 
-# For macOS
-$ npm run build:mac
+2. Build le projet
+    ```bash
+    $ make build-mac
+    ```
 
-# For Linux
-$ npm run build:linux
-```
+### Windows
 
+1. Installer les dépendances
+
+    ```bash
+    $ npm install
+    ```
+
+2. Lancer le projet
+
+    ```bash
+    $ npm run dev
+    ```
+
+3. Build le projet
+
+    ```bash
+    $ npm run build:win
+    ```
 
 ## Contribution
 
