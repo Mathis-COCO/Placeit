@@ -8,6 +8,8 @@ export default function Panel(): JSX.Element {
     const [state, dispatch] = useContext(GroupContext)
     const [groupCount, setGroupCount] = useState(1)
     const [zoneCount, setZoneCount] = useState(1)
+    const [selectedZone, setSelectedZone] = useState<null | string>(null);
+    const [selectedOption, setSelectedOption] = useState<string>("");
 
     const addGroup = () => {
         setGroupCount(groupCount + 1)
@@ -50,6 +52,19 @@ export default function Panel(): JSX.Element {
         });
     }
 
+    const selectZone = (zone: string) => {
+        setSelectedZone(zone);
+    }
+
+    const closeDropdown = () => {
+        setSelectedZone(null);
+    }
+
+    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedOption(event.target.value);
+    }
+
+
     return (
         <div className="left-bar">
             <div className="logo-content">
@@ -63,7 +78,28 @@ export default function Panel(): JSX.Element {
                     ))
                 }
             </div>
+            <div className="zones-container">
+                <div className="zone" onClick={() => selectZone("Zone 1")}>
+                    Zone 1
+                </div>
+                <div className="zone" onClick={() => selectZone("Zone 2")}>
+                    Zone 2
+                </div>
+            </div>
             <Button text={"Ajouter une zone"} onClick={addZone}/>
+            {selectedZone && (
+                <div className="dropdown-menu">
+                    <button className="close-button" onClick={closeDropdown}>X</button>
+                    <div className="reservation">
+                        <span>Réservation</span>
+                        <select value={selectedOption} onChange={handleChange}>
+                            {["Example", "Test","OUI","NON"].map((option, index) => (
+                                <option key={index} value={option}>{option}</option>
+                            ))}
+                        </select>
+                    </div>
+                </div>
+            )}
         </div>
     )
 }
