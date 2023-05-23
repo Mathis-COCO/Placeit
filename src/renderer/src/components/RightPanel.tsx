@@ -4,7 +4,7 @@ import {AppActionType} from "../context/app/AppReducer";
 import deploy from '../assets/img/deploy.svg'
 import {Selector} from "./common/Selector";
 import {Switch} from "./common/Switch";
-import {CloseButton} from "./common/CloseButton";
+import {ImgButton} from "./common/ImgButton";
 
 export default function RightPanel(): JSX.Element {
     const [state, dispatch] = useContext(AppContext);
@@ -18,7 +18,7 @@ export default function RightPanel(): JSX.Element {
 
     return state.selectedZone ? (
         <div className="right-panel">
-            <CloseButton  imgPath={deploy} onClick={closeDropdown}/>
+            <ImgButton imgPath={deploy} onClick={closeDropdown}/>
 
             <h1>Zone {state.selectedZone.id}</h1>
 

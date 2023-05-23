@@ -1,8 +1,13 @@
 import logo from '../assets/img/logo.png'
+import zone from '../assets/img/zone.svg'
+import cog from '../assets/img/cog.svg'
 import {useContext, useState} from "react";
 import {Button} from "./common/Button";
 import {GroupContext} from "../context/groups/GroupProvider";
 import {GroupActionType} from "../context/groups/GroupReducer";
+import {ImgButton} from "./common/ImgButton";
+import {render} from "react-dom";
+import Options from "./Options";
 
 export default function Panel(): JSX.Element {
     const [state, dispatch] = useContext(GroupContext)
@@ -52,18 +57,25 @@ export default function Panel(): JSX.Element {
 
     return (
         <div className="left-bar">
-            <div className="logo-content">
-                <img className="logo" src={logo} alt="PlaceIt Logo"/>
+            <div className="content">
+                <div className="logo-content">
+                    <img className="logo" src={logo} alt="PlaceIt Logo"/>
+                </div>
+                <Button text={"Ajouter un groupe"} onClick={addGroup}/>
+                <div className="groups-container">
+                    {
+                        state.groups.map((group, index) => (
+                            <p key={index} className='group-name' onClick={() => openGroup(group.id)}>{group.label}</p>
+                        ))
+                    }
+                </div>
             </div>
-            <Button text={"Ajouter un groupe"} onClick={addGroup}/>
-            <div className="groups-container">
-                {
-                    state.groups.map((group, index) => (
-                        <p key={index} className='group-name' onClick={() => openGroup(group.id)}>{group.label}</p>
-                    ))
-                }
+            <div className="bottom">
+                <ImgButton imgPath={zone} onClick={addZone}/>
+                <div className="config">
+                    <ImgButton imgPath={cog} onClick={() => render(<Options />, document.getElementById('root'))}/>
+                </div>
             </div>
-            <Button text={"Ajouter une zone"} onClick={addZone}/>
         </div>
     )
 }

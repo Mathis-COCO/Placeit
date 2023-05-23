@@ -9,6 +9,7 @@ function Options(): JSX.Element {
                     <input type="checkbox" />
                 </div>
             ))}
+            <p><i>Press CTRL+R to back to main page</i></p>
         </div>
     )
 }

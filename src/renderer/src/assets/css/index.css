@@ -3,7 +3,7 @@
 
 /* COMMON COMPONENTS */
 @import url(components/common/Button.css);
-@import url(components/common/CloseButton.css);
+@import url(components/common/ImgButton.css);
 @import url(components/common/Selector.css);
 @import url(components/common/Switch.css);
 
