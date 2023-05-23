@@ -1,12 +1,15 @@
 import interact from 'interactjs'
 import '../assets/css/components/InteractElement.css'
-import {useContext, useState} from "react";
+import {useContext} from "react";
 import {GroupContext} from "../context/groups/GroupProvider";
+import {AppContext} from "../context/app/AppProvider";
+import {ZoneType} from "../types/ZoneType";
+import {AppActionType} from "../context/app/AppReducer";
 
 function InteractZones(): JSX.Element {
     const position = {x: 0, y: 0}
     const [state,] = useContext(GroupContext);
-    const [, setSelectedZone] = useState<null | number>(null);
+    const [test, dispatch] = useContext(AppContext);
 
     interact('.draggable').draggable({
         listeners: {
@@ -27,8 +30,12 @@ function InteractZones(): JSX.Element {
         ]
     })
 
-    const selectZone = (zone: number) => {
-        setSelectedZone(zone);
+    const selectZone = async (zone: ZoneType) => {
+        console.log(test)
+        await dispatch({
+            type: AppActionType.SET_SELECTED_ZONE,
+            payload: zone
+        })
     }
 
     return (
@@ -36,7 +43,7 @@ function InteractZones(): JSX.Element {
             <div className="interact-container">
                 {state.currentGroup && <h1>{state.currentGroup.label}</h1>}
                 {state.currentGroup && state.currentGroup.zones.map((zone, index) => (
-                    <div className="draggable" key={index} onClick={() => selectZone(zone.id)}>
+                    <div className="draggable" key={index} onClick={() => selectZone(zone)}>
                         <p className='zone-places'>{zone.totalPlaces - zone.occupiedPlaces} places</p>
                         <p className='zone-index'>{zone.id}</p>
                     </div>
