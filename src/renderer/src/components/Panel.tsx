@@ -1,5 +1,5 @@
 import logo from '../assets/img/logo.png'
-import {useContext, useState} from "react";
+import {ChangeEvent, useContext, useState} from "react";
 import {Button} from "./common/Button";
 import {GroupContext} from "../context/groups/GroupProvider";
 import {GroupActionType} from "../context/groups/GroupReducer";
@@ -60,7 +60,7 @@ export default function Panel(): JSX.Element {
         setSelectedZone(null);
     }
 
-    const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const handleChange = (event: ChangeEvent<HTMLSelectElement>) => {
         setSelectedOption(event.target.value);
     }
 
