@@ -6,6 +6,7 @@
 @import url(components/common/ImgButton.css);
 @import url(components/common/Selector.css);
 @import url(components/common/Switch.css);
+@import url(components/common/Title.css);
 
 /* OTHER COMPONENTS */
 @import url(components/Panel.css);

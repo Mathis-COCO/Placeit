@@ -5,6 +5,7 @@ import {GroupContext} from "../context/groups/GroupProvider";
 import {AppContext} from "../context/app/AppProvider";
 import {ZoneType} from "../types/ZoneType";
 import {AppActionType} from "../context/app/AppReducer";
+import {Title} from "./common/Title";
 
 function InteractZones(): JSX.Element {
     const position = {x: 0, y: 0}
@@ -41,7 +42,7 @@ function InteractZones(): JSX.Element {
     return (
         <div className='right-part'>
             <div className="interact-container">
-                {state.currentGroup && <h1>{state.currentGroup.label}</h1>}
+                {state.currentGroup && <Title text={state.currentGroup.label}/>}
                 {state.currentGroup && state.currentGroup.zones.map((zone, index) => (
                     <div className="draggable" key={index} onClick={() => selectZone(zone)}>
                         <p className='zone-places'>{zone.totalPlaces - zone.occupiedPlaces} places</p>
