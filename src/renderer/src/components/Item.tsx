@@ -1,8 +1,7 @@
 import { useLocalStorage } from "@renderer/hook/UseLocalStorage";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { FormComponent } from "./Form";
 import { ListComponent } from "./List";
-import { ListItemText, Typography } from "@mui/material";
 
 export interface Item {
     name: string;
