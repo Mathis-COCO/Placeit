@@ -45,7 +45,6 @@ export const GroupReducer = (state: GroupState, action: Action<GroupActionType>)
                     ...state.currentGroup,
                     zones: action.payload
                 },
-                loading: false,
             };
         default:
             return state;

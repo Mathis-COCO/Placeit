@@ -4,7 +4,7 @@ import {Action} from "../../types/ActionType";
 
 export const AppContext = createContext<[AppState, Dispatch<Action<AppActionType>>]>([
     initialAppState,
-    () => null
+    () => null,
 ]);
 
 export const AppProvider: FC<PropsWithChildren> = ({children}) => {

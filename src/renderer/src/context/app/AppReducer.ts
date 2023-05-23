@@ -8,12 +8,12 @@ export interface AppState {
 
 export const initialAppState: AppState = {
     loading: false,
-    selectedZone: undefined
+    selectedZone: undefined,
 }
 
 export enum AppActionType {
     SET_LOADING = 'SET_LOADING',
-    SET_SELECTED_ZONE = 'SET_SELECTED_ZONE'
+    SET_SELECTED_ZONE = 'SET_SELECTED_ZONE',
 }
 
 export const AppReducer = (state: AppState, action: Action<AppActionType>) => {
