@@ -27,6 +27,7 @@ function InteractZones(): JSX.Element {
 
     return (
         <div className="interact-container">
+            {state.currentGroup && <h1>{state.currentGroup.label}</h1>}
             {state.currentGroup && state.currentGroup.zones.map((zone, index) => (
                 <div className="draggable" key={index}>
                     <p className='zone-places'>{zone.totalPlaces - zone.occupiedPlaces} places</p>
