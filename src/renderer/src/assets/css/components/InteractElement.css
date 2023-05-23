@@ -1,7 +1,7 @@
 .draggable {
     background-color: rgb(255, 255, 255);
-    color: pink;
-    border: solid pink 0.5vh;
+    color: var(--light-blue);
+    border: solid var(--light-blue) 0.5vh;
     height: 20vh;
     width: 20vh;
     border-radius: 7.5%;
