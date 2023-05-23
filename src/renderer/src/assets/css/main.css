@@ -22,3 +22,10 @@ p, span {
     margin: 0;
     user-select: none;
 }
+
+select, input {
+    border-radius: 15px;
+    background-color: var(--white);
+    border: solid 2px var(--black);
+    font-size: 14px;
+}

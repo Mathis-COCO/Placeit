@@ -1,0 +1,9 @@
+select {
+    padding: 5px;
+    max-width: 150px;
+}
+
+input[type="number"] {
+    width: 35px;
+    padding: 2px 8px;
+}
