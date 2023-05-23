@@ -1,5 +1,3 @@
-import '../assets/css/Options.css'
-
 function Options(): JSX.Element {
     const optionsList = ['option 1', 'option 2', 'option 3', 'option 4', 'option 5'];
 
