@@ -5,7 +5,7 @@ const Groupe = () => {
 
     return (
         
-        <div>
+        <div className="allGroupes">
             {GroupeData.map(item => (
                 <div className="groupe">
                     <h1>{item.name}</h1>
