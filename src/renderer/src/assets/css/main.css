@@ -1,0 +1,31 @@
+body {
+    font-family: 'Inter', sans-serif;
+    padding: 0;
+    margin: 0;
+    color: var(--black);
+    background-color: var(--white);
+}
+
+.app {
+    display: flex;
+}
+
+.right-part {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: scroll;
+}
+
+p, span {
+    margin: 0;
+    user-select: none;
+}
+
+select, input {
+    border-radius: 15px;
+    background-color: var(--white);
+    border: solid 2px var(--black);
+    font-size: 14px;
+}

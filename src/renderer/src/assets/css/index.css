@@ -1,0 +1,16 @@
+@import url(root.css);
+@import url(main.css);
+
+/* COMMON COMPONENTS */
+@import url(components/common/Button.css);
+@import url(components/common/ImgButton.css);
+@import url(components/common/Selector.css);
+@import url(components/common/Switch.css);
+@import url(components/common/Title.css);
+
+/* OTHER COMPONENTS */
+@import url(components/Panel.css);
+@import url(components/InteractElement.css);
+@import url(components/Options.css);
+@import url(components/RightPanel.css);
+

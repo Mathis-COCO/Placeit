@@ -1,0 +1,15 @@
+.right-panel {
+    padding: 20px;
+    width: 30%;
+}
+
+.fields {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 20px;
+    align-items: center;
+}
+
+.field-text {
+    font-size: 17px;
+}
