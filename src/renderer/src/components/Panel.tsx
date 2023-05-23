@@ -6,7 +6,7 @@ import {GroupActionType} from "../context/groups/GroupReducer";
 
 export default function Panel(): JSX.Element {
     const [state, dispatch] = useContext(GroupContext)
-    const [groupCount, setGroupCount] = useState(0)
+    const [groupCount, setGroupCount] = useState(1)
     const [zoneCount, setZoneCount] = useState(1)
 
     const addGroup = () => {
@@ -15,7 +15,7 @@ export default function Panel(): JSX.Element {
             type: GroupActionType.ADD_GROUP,
             payload: {
                 id: groupCount,
-                label: "Nouveau groupe",
+                label: `Groupe ${groupCount}`,
                 zones: []
             },
         });
